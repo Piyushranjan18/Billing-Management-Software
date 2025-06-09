@@ -1,0 +1,12 @@
+public class RecurringInvoice extends Invoice {
+    private String billingCycle;
+
+    public RecurringInvoice(String invoiceId, Customer customer, double amount, String dueDate, String billingCycle) {
+        super(invoiceId, customer, amount, dueDate);
+        this.billingCycle = billingCycle;
+    }
+
+    public void generateRecurringInvoice() {
+        System.out.println("Generating recurring invoice every " + billingCycle);
+    }
+}
