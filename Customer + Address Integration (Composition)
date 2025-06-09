@@ -1,0 +1,2 @@
+Address address = new Address("123 Main St", "Bangalore", "560001");
+Customer customer = new Customer("C001", "Amit", "amit@example.com", address);
