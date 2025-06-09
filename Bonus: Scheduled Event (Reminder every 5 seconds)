@@ -1,0 +1,6 @@
+ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+scheduler.scheduleAtFixedRate(() -> {
+    PaymentReminder.sendReminder(customer, invoice.invoiceId);
+}, 0, 5, TimeUnit.SECONDS);
+
