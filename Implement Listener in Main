@@ -1,0 +1,34 @@
+public class BillingApp {
+    public static void main(String[] args) {
+        // Setup
+        Address addr = new Address("Park Street", "Kolkata", "700016");
+        Customer cust = new Customer("C009", "Ravi", "ravi@email.com", addr);
+        Invoice invoice = new Invoice("INV9001", cust, 2999, "2025-06-20");
+        Payment payment = new CreditCardPayment(2999);
+
+        BillingEventProcessor processor = new BillingEventProcessor();
+
+        // Listener Implementation
+        processor.setBillingEventListener(new BillingEventListener() {
+            @Override
+            public void onInvoiceGenerated(Invoice i) {
+                System.out.println("✅ Event: Invoice " + i.invoiceId + " generated.");
+            }
+
+            @Override
+            public void onPaymentProcessed(Payment p) {
+                System.out.println("💳 Event: Payment of ₹" + p.amount + " processed.");
+            }
+
+            @Override
+            public void onReminderSent(String id) {
+                System.out.println("🔔 Event: Reminder sent for invoice " + id);
+            }
+        });
+
+        // Trigger Events
+        processor.generateInvoice(invoice);
+        processor.processPayment(payment);
+        processor.sendReminder(invoice.invoiceId, cust);
+    }
+}
