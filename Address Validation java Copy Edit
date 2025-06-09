@@ -1,0 +1,15 @@
+public class Address {
+    private String street;
+    private String city;
+    private String zipCode;
+
+    public Address(String street, String city, String zipCode) {
+        if (street == null || street.isEmpty()) throw new IllegalArgumentException("Street is required.");
+        if (city == null || city.isEmpty()) throw new IllegalArgumentException("City is required.");
+        if (!zipCode.matches("\\d{6}")) throw new IllegalArgumentException("Invalid ZIP Code.");
+
+        this.street = street;
+        this.city = city;
+        this.zipCode = zipCode;
+    }
+}
