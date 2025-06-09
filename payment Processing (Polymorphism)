@@ -1,0 +1,2 @@
+Payment creditCard = new CreditCardPayment(3500.0);
+Payment bankTransfer = new BankTransferPayment(1200.0);
