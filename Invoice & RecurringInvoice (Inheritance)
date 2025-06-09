@@ -1,0 +1,2 @@
+Invoice invoice = new Invoice("INV1001", customer, 3500.0, "2025-06-15");
+RecurringInvoice recurringInvoice = new RecurringInvoice("INV2001", customer, 1200.0, "2025-06-10", "Monthly");
