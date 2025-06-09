@@ -1,0 +1,19 @@
+public class BillingApp {
+    public static void main(String[] args) {
+        try {
+            Address addr = new Address("MG Road", "Delhi", "110001");
+            Customer customer = new Customer("C001", "Ravi", "ravi@example.com", addr);
+
+            Invoice invoice = new Invoice("INV001", customer, 5000, "2025-06-15");
+            invoice.generateInvoice();
+
+            Payment payment = new CreditCardPayment(5000);
+            payment.processPayment();
+
+        } catch (IllegalArgumentException e) {
+            System.err.println("Validation Error: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected Error: " + e.getMessage());
+        }
+    }
+}
