@@ -1,0 +1,11 @@
+public class Validator {
+    public static void validateAmount(double amount) {
+        if (amount <= 0) throw new IllegalArgumentException("Amount must be greater than 0.");
+    }
+
+    public static void validateEmail(String email) {
+        if (email == null || !email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            throw new IllegalArgumentException("Invalid email address.");
+        }
+    }
+}
