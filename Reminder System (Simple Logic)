@@ -1,0 +1,5 @@
+public class PaymentReminder {
+    public static void sendReminder(Customer customer, String invoiceId) {
+        System.out.println("Reminder sent to " + customer.getCustomerDetails() + " for Invoice ID: " + invoiceId);
+    }
+}
