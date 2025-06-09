@@ -1,0 +1,17 @@
+public class CreditCardPayment extends Payment {
+    public CreditCardPayment(double amount) {
+        super(amount);
+    }
+
+    @Override
+    public void processPayment() {
+        try {
+            if (amount <= 0) {
+                throw new InvalidPaymentException("Payment amount must be greater than 0.");
+            }
+            System.out.println("Processing credit card payment: ₹" + amount);
+        } catch (InvalidPaymentException e) {
+            System.err.println("Payment failed: " + e.getMessage());
+        }
+    }
+}
