@@ -1,0 +1,7 @@
+public void generateInvoice() {
+    if (customer == null) {
+        System.err.println("Invoice generation failed: customer is null.");
+        return;
+    }
+    System.out.println("Invoice generated for " + customer.getCustomerDetails());
+}
