@@ -1,0 +1,30 @@
+public class Customer {
+    private String customerId;
+    private String name;
+    private String email;
+    private Address address;
+
+    public Customer(String customerId, String name, String email, Address address) {
+        if (!isValidId(customerId)) throw new IllegalArgumentException("Invalid customer ID.");
+        if (!isValidName(name)) throw new IllegalArgumentException("Invalid customer name.");
+        if (!isValidEmail(email)) throw new IllegalArgumentException("Invalid email address.");
+        if (address == null) throw new IllegalArgumentException("Address cannot be null.");
+
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+    }
+
+    private boolean isValidId(String id) {
+        return id != null && id.matches("C\\d{4}"); // e.g., C0001
+    }
+
+    private boolean isValidName(String name) {
+        return name != null && name.length() >= 2;
+    }
+
+    private boolean isValidEmail(String email) {
+        return email != null && email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+    }
+}
