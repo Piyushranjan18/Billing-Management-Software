@@ -1,0 +1,1 @@
+PaymentReminder.sendReminder(customer, invoice.invoiceId);
