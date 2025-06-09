@@ -1,0 +1,29 @@
+public class BillingApp {
+    public static void main(String[] args) {
+        try {
+            // Step 1: Customer and Address
+            Address address = new Address("BTM Layout", "Bangalore", "560029");
+            Customer customer = new Customer("C1001", "Neha", "neha@domain.com", address);
+
+            // Step 2: Invoice Creation
+            Invoice invoice = new Invoice("INV001", customer, 5000.0, "2025-06-20");
+            invoice.generateInvoice();
+
+            // Step 3: Recurring Invoice
+            RecurringInvoice recurring = new RecurringInvoice("INV002", customer, 1500.0, "2025-06-15", "Monthly");
+            recurring.generateRecurringInvoice();
+
+            // Step 4: Process Payment
+            Payment payment = new CreditCardPayment(5000.0);
+            payment.processPayment();
+
+            // Step 5: Reminder
+            PaymentReminder.sendReminder(customer, invoice.invoiceId);
+
+        } catch (IllegalArgumentException e) {
+            System.err.println("Input error: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Unexpected error: " + e.getMessage());
+        }
+    }
+}
