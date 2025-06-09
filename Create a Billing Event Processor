@@ -1,0 +1,22 @@
+public class BillingEventProcessor {
+    private BillingEventListener listener;
+
+    public void setBillingEventListener(BillingEventListener listener) {
+        this.listener = listener;
+    }
+
+    public void generateInvoice(Invoice invoice) {
+        invoice.generateInvoice();
+        if (listener != null) listener.onInvoiceGenerated(invoice);
+    }
+
+    public void processPayment(Payment payment) {
+        payment.processPayment();
+        if (listener != null) listener.onPaymentProcessed(payment);
+    }
+
+    public void sendReminder(String invoiceId, Customer customer) {
+        PaymentReminder.sendReminder(customer, invoiceId);
+        if (listener != null) listener.onReminderSent(invoiceId);
+    }
+}
