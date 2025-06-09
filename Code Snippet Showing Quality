@@ -1,0 +1,21 @@
+/**
+ * Handles invoice generation and stores billing data.
+ */
+public class Invoice {
+    private final String invoiceId;
+    private final Customer customer;
+    private final double amount;
+    private final String dueDate;
+
+    public Invoice(String invoiceId, Customer customer, double amount, String dueDate) {
+        if (!Validator.isValidInvoiceId(invoiceId)) throw new IllegalArgumentException("Invalid invoice ID");
+        this.invoiceId = invoiceId;
+        this.customer = customer;
+        this.amount = amount;
+        this.dueDate = dueDate;
+    }
+
+    public void generateInvoice() {
+        System.out.println("Invoice generated for: " + customer.getName());
+    }
+}
