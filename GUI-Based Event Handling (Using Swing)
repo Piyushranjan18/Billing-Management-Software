@@ -1,0 +1,8 @@
+JButton generateBtn = new JButton("Generate Invoice");
+
+generateBtn.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        invoice.generateInvoice();
+        JOptionPane.showMessageDialog(null, "Invoice Generated!");
+    }
+});
