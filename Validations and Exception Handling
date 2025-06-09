@@ -1,0 +1,6 @@
+public void setEmail(String email) throws IllegalArgumentException {
+    if (email == null || !email.contains("@")) {
+        throw new IllegalArgumentException("Invalid email address.");
+    }
+    this.email = email;
+}
