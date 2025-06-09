@@ -1,0 +1,6 @@
+try {
+    payment.processPayment();
+} catch (InvalidPaymentException ex) {
+    System.err.println("❌ Error Event: " + ex.getMessage());
+    // Optional: notify listeners or logs
+}
